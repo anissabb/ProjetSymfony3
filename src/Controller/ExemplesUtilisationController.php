@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ExemplesUtilisationController extends AbstractController
 {
-    #[Route('/exemples/utilisation', name: 'app_exemples_utilisation')]
+    #[Route('/exemples/utilisation/afficher/tous', name: 'afficher_tous')]
     public function afficherTous(): Response
     {
         return $this->render('exemples_utilisation/afficher_tous.html.twig');

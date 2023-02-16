@@ -26,6 +26,7 @@ class Aeroport
     
     public function __construct(array $vals = []){
         $this->hydrate($vals);
+       
          $this->volsDepart = new ArrayCollection();
         }
     

@@ -12,11 +12,11 @@ class ExemplesUtilisationController extends AbstractController
     #[Route('/exemples/utilisation/afficher/tous', name: 'afficher_tous')]
     public function afficherTous(HttpClientInterface $client): Response
     {
-        $response=$client->request(
-            'GET',
-            'http://localhost:8000/exemples/utilisation/afficher/tous'
-        );
-        dd($response->getContent());
+        // $response=$client->request(
+        //     'GET',
+        //     'http://localhost:8000/exemples/utilisation/afficher/tous'
+        // );
+        // dd($response->getContent());
         return $this->render('exemples_utilisation/afficher_tous.html.twig');
     }
 }

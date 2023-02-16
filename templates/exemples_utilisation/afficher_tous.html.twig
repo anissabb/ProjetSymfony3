@@ -9,4 +9,13 @@ On accede a l'API et on incruste le resultat dans le DOM. On obtient tous les a√
 <div id='contenu'>
 <a href="/api/aeroports">Lien</a>
 </div>
+
+<script>
+
+    fetch("/api/aeroports", {method:'GET'})
+    .then(response=>response.json())
+    .then(data =>document.getElementById('contenu').innerHTML=data[1].nom;
+    ); 
+
+</script>
 {% endblock %}

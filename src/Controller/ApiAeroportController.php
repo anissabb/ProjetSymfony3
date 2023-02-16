@@ -2,17 +2,34 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\AeroportRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
+#[Route('/api',name:'api')]
 class ApiAeroportController extends AbstractController
 {
-    #[Route('/api/aeroport', name: 'app_api_aeroport')]
-    public function index(): Response
+
+    // creer les actions pour l'api
+
+    // GET - Select 
+    // GET + id - Select simple
+
+    // POST - Insert  (Pour rajouter un)
+
+    // Delete- delete
+
+    // PUT - Update 
+    // 
+
+    //GETALL
+    #[Route('/aeroports', name: 'app_api_aeroports')]
+    public function getAll(AeroportRepository $rep): Response
     {
-        return $this->render('api_aeroport/index.html.twig', [
-            'controller_name' => 'ApiAeroportController',
-        ]);
+        $aeroports=$rep->findAll();
+        dump(json_encode($aeroports[0]));
+        dd($aeroports[0]);
+        dd($aeroports);
     }
 }

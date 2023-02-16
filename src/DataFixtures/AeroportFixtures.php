@@ -2,12 +2,14 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Produit;
 use Faker\Factory;
+use App\Entity\Aeroport;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
-class ProduitFixtures extends Fixture
+
+
+class AeroportFixtures extends Fixture
 {
 
     
@@ -15,17 +17,17 @@ class ProduitFixtures extends Fixture
     {
 
 
-        $faker=Factory::create("fr_FR");
+        $faker=Factory::create('fr_FR');
 
         for($i=0;$i<25;$i++){
-        $produit=new Produit();
-        $produit->setNom("produit".$i);
-        $produit->setPrix(mt_rand(10,500));
-        //ne pas utliser faker pour les mails psq ce sont des mails aléatoires et on va pas retenir
+        $aeroport=new Aeroport();
+        $aeroport->setNom("aeroport".$i);
+        $aeroport->setCode("Code".$i);
+
         
         
 
-        $manager->persist($produit);
+        $manager->persist($aeroport);
     
          }
         

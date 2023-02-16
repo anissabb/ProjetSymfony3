@@ -28,8 +28,16 @@ class ApiAeroportController extends AbstractController
     public function getAll(AeroportRepository $rep): Response
     {
         $aeroports=$rep->findAll();
-        dump(json_encode($aeroports[0]));
-        dd($aeroports[0]);
-        dd($aeroports);
+
+        $res=[];
+
+        foreach ($aeroports as $aeroport) {
+            $res[]=['nom'=>$aeroport->getNom(),
+                    'code'=>$aeroport->getCode(),
+                    'id'=>$aeroport->getId()];
+        }
+
+        return $this->json($res);
+        
     }
 }
